@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GoL</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+<!--	<script src="kvadrat.js"></script>	-->
+</head>
+<body>
+<header>	
+	<div><h1>Game of Life</h1><div>
+</header>
+<content>
+	<div class="interface">
+	</div>
+	<div id="field">
+		<script >
+		for(var i = 0; i < 2000; i++){
+			var square = document.createElement("button");
+			square.classList.add("square");
+			square.onclick = function(){
+			square.style.backgroundColor = "blue";
+			};
+			
+			field.appendChild(square);
+	}
+		</script>
+	</div>
+	 <div class="generation">
+	 	<span>Generation</span>
+	 </div>
+</content>
+</body>
+</html>	
