@@ -24,10 +24,14 @@ content {
 	flex-direction: column;
 }
 .interface {
-	height: 10vw;
-	width:30%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+	height: 10%;
+	width:50%;
+	align-items: flex-end;
+}
+button{
+	height: 40%;
 }
 #field {
 	display: flex;
@@ -44,16 +48,17 @@ content {
 	border: 1px solid black;
 	/*background-color: gray;*/
 	box-sizing: border-box;
-
-
 }
-/*.square:hover{
-	background-color: red;
-}*/
+.squareR {
+	width: 2%;
+	height: 2.5%;
+	border: 1px solid black;
+	background-color: blue;
+	box-sizing: border-box;
+}
+
 .generation{
 	padding-top: 10px;
 	text-transform: uppercase;
 }
-/*.square:active{
-	background-color: blue;
-}*/
+

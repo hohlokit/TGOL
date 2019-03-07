@@ -1,14 +1,17 @@
-var field = document .getElementById("field");
+function create() {
+	for(var i = 0; i < 2000; i++) {
+			createUserSegment();
+		}
+}		
 
-window.onload = function(){
-	for(var i = 0; i < 10; i++){
-		var square = document.createElement("div");
-		square.classList.add("square");
-		square.onclick() = function(){
-			square.style.backgroundColor = blue;
-		};
-		square.innerText = " ";
 
-		field.appendChild(square);
-	}
+function createUserSegment() {
+  	var div = document.createElement("div");
+  	div.className = 'square';
+  	div.onclick = function() {
+  	div.style.backgroundColor = "blue";
+  	};
+  	document.getElementById("field").appendChild(div);
 }
+
+create();

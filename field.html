@@ -11,19 +11,22 @@
 </header>
 <content>
 	<div class="interface">
+		<button>Play</button>
+		<button>Pause</button>
+		<button>Clear</button>
+		<button>Slow</button>
+		<button>Fast</button>
+		<button>Seed</button>
+		<select>
+			<option>50x40</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+		
+
 	</div>
 	<div id="field">
-		<script>
-
-		for(var i = 0; i < 2000; i++){
-			var square = document.createElement("div");
-			square.classList.add("square");
-			square.onclick = function(){
-			event.currentTarget.style.backgroundColor = "blue";
-			};
-			
-			field.appendChild(square);
-	}
+		<script src="kvadrat.js">
 		</script>
 
 	</div>
