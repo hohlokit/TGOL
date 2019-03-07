@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>GoL</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-<!--	<script src="kvadrat.js"></script>	-->
 </head>
+
 <body>
-<header>	
-	<div><h1>Game of Life</h1><div>
-</header>
-<content>
-	<div class="interface">
-		<button>Play</button>
-		<button>Pause</button>
-		<button>Clear</button>
-		<button>Slow</button>
-		<button>Fast</button>
-		<button>Seed</button>
-		<select>
-			<option>50x40</option>
-			<option>2</option>
-			<option>3</option>
-		</select>
-		
+	<header>
+		<div>
+			<h1>Game of Life</h1>
+			<div>
+	</header>
+	<content>
+		<div class="interface">
+			<button>Play</button>
+			<button>Pause</button>
+			<button>Clear</button>
+			<button>Slow</button>
+			<button>Fast</button>
+			<button>Seed</button>
+			<select onchange="handleChangeSize(event)" id="size">
+				<option value="20x10">20x10</option>
+				<option value="50x40">50x40</option>
+			</select>
 
-	</div>
-	<div id="field">
-		<script src="kvadrat.js">
-		</script>
 
-	</div>
-	 <div class="generation">
-	 	<span>Generation</span>
-	 </div>
-</content>
+		</div>
+		<div id="field">
+
+
+		</div>
+		<div class="generation">
+			<span>Generation</span>
+		</div>
+	</content>
+	<script src="kvadrat.js"></script>
 </body>
-</html>	
+
+</html>
