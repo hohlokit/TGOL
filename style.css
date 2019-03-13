@@ -34,7 +34,7 @@ content {
 	display: flex;
 	justify-content: space-evenly;
 	height: 10%;
-	width:30%;
+	width: 30%;
 	align-items: center;
 }
 button{
@@ -70,4 +70,3 @@ button{
 	padding-top: 10px;
 	text-transform: uppercase;
 }
-
