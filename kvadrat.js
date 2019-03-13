@@ -32,18 +32,15 @@ function createUserSegment() {
 	document.getElementById("field").appendChild(div);
 }
 
-function deleteField() {
-	getElementByClassName('square');
-	for (var i = 0; i < width * height; i++) {
-		field.removeElement(square);
-	}
-	render();
-}
+// function deleteField(fieldsize) {
+// 	var size = game.size.split('x');
+// 	var height = +size[1], width = +size[0];
+// 	for (var i = 0; i < width * height; i++) {
+// 		field.removeElement('square');
+// 	}
+// 	render();
+// }
 
-function destr() {
-	debugger
-	deleteField();
-}
 
 function fieldSize(fieldsize) {
 	if (game.size == "20x10") {
@@ -63,8 +60,10 @@ function fieldSize(fieldsize) {
 	}
 }
 
+
 function handleChangeSize(event) {
 	game.size = event.target.value;
+//	deleteField(game.size);
 	fieldSize(game.size);
 	render();
 }
