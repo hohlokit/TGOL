@@ -16,11 +16,11 @@
 		<div class="interface">
 			<button>Play</button>
 			<button>Pause</button>
-			<button>Clear</button>
+			<button onclick="clearField()">Clear</button>
 			<button>Slow</button>
 			<button>Fast</button>
 			<button>Seed</button>
-			<select onchange="handleChangeSize(event)" id="size">
+			<select class="selection" onchange="handleChangeSize(event)" id="size">
 				<option value="20x10">20x10</option>
 				<option value="50x30">50x30</option>
 				<option value="70x50">70x50</option>
