@@ -19,8 +19,6 @@ function handleSquare(event) {
 			game.arr[id].selected = false;
 		}
 	}
-	else
-	debugger;
 }
 
 window.onload = function () {
