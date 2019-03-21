@@ -5,9 +5,6 @@ function RegisterUser(event) {
 
     var arrLocalStorage = JSON.parse(window.localStorage.getItem('DataBase'));
 
-    if (arrLocalStorage && arrLocalStorage.length) {
-        alert("@");
-    }
     var email = event.target.elements.email.value;
     var F_pass = event.target.elements.FirstPassword.value;
     var S_pass = event.target.elements.SecondPassword.value;
@@ -22,7 +19,7 @@ function RegisterUser(event) {
         event.target.reset();
         document.location.href = "./log.html";
     } else {
-        alert("pes");
+        alert("2");
     }
 }
 
@@ -38,6 +35,7 @@ function Login(event) {
         DataBase.forEach(element => {
             if (element.email === email && element.pass === pass) {
                 alert("ok");
+        document.location.href = "./field.html";
             }
         });
     } else {

@@ -11,14 +11,20 @@
 </head>
 
 <body>
+    <header>
+        <div>
+            <h1>Game of Life</h1>
+        </div>
+    </header>
     <content>
-        <form name="authorization" onSubmit="RegisterUser(event);">
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="FirstPassword" placeholder="Password">
-            <input type="password" name="SecondPassword" placeholder="Password">
-            <button type="submit">submit</button>
-        </form>
-
+        <div class="box">
+            <form name="authorization" onSubmit="RegisterUser(event);">
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="FirstPassword" placeholder="Password" required minlength="4">
+                <input type="password" name="SecondPassword" placeholder="Password" required minlength="4">
+                <button type="submit">submit</button>
+            </form>
+        </div>
     </content>
 </body>
 
