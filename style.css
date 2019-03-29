@@ -68,14 +68,6 @@ button {
 	box-sizing: border-box;
 }
 
-/*.squareR {
-	width: 15px;
-	height: 15px;
-	border: 1px solid black;
-	background-color: blue;
-	box-sizing: border-box;
-}*/
-
 .generation {
 	padding-top: 10px;
 	text-transform: uppercase;

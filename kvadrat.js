@@ -83,8 +83,6 @@ function handleChangeSize(event) {
 	render();
 }
 
-
-
 function randomGen() {
 	clearField();
 	render();

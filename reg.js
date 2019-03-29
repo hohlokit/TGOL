@@ -40,7 +40,6 @@ function Login(event) {
 
                 var userObject = JSON.parse(DataBase);
                 
-                
                 document.location.href = "./field.html";
             }
         });
