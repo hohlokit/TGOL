@@ -1,4 +1,7 @@
 var field = document.getElementById('field');
+var squareinf = [];
+
+var arrLS = JSON.parse(window.localStorage.getItem('squareinf'));
 
 var game = {
 	size: '20x10',
@@ -38,7 +41,6 @@ function render() {
 	}
 }
 
-
 function createUserSegment(sum) {
 	var div = document.createElement("div");
 	div.className = 'square';
@@ -47,13 +49,15 @@ function createUserSegment(sum) {
 }
 
 function clearField() {
-	var temp = document.getElementsByClassName('square');
-	for (var i = 0; i < temp.length; i++) {
-		temp[i].style.backgroundColor = 'white';
+	while (field.lastChild) {
+		field.removeChild(field.lastChild);
 	}
 }
 
-
+function Clear(){
+	clearField();
+	render();
+}
 function fieldSize(fieldsize) {
 	if (game.size === "20x10") {
 		var temp = document.getElementById('field');
@@ -72,10 +76,51 @@ function fieldSize(fieldsize) {
 	}
 }
 
-
 function handleChangeSize(event) {
 	game.size = event.target.value;
 	clearField(game.size);
 	fieldSize(game.size);
 	render();
+}
+
+
+
+function randomGen() {
+	clearField();
+	render();
+
+	var squareTemp;
+	var squareColorTemp;
+	var countTemp;
+
+	if (game.size === "20x10") {
+		countTemp = Math.floor(Math.random() * (200 - 0)) + 0;
+
+		for (var i = 0; i < countTemp; i++) {
+			squareTemp = Math.floor(Math.random() * (200 - 0)) + 0;
+			squareColorTemp = document.getElementById(squareTemp);
+			squareColorTemp.style.backgroundColor = "blue";
+			game.arr[squareTemp].selected = true;
+		}
+	}
+	if (game.size === "50x30") {
+		countTemp = Math.floor(Math.random() * (1500 - 0)) + 0;
+
+		for (var i = 0; i < countTemp; i++) {
+			squareTemp = Math.floor(Math.random() * (1500 - 0)) + 0;
+			squareColorTemp = document.getElementById(squareTemp);
+			squareColorTemp.style.backgroundColor = "blue";
+			game.arr[squareTemp].selected = true;
+		}
+	}
+	if (game.size === "70x50") {
+		countTemp = Math.floor(Math.random() * (3500 - 0)) + 0;
+
+		for (var i = 0; i < countTemp; i++) {
+			squareTemp = Math.floor(Math.random() * (3500 - 0)) + 0;
+			squareColorTemp = document.getElementById(squareTemp);
+			squareColorTemp.style.backgroundColor = "blue";
+			game.arr[squareTemp].selected = true;
+		}
+	}
 }

@@ -12,7 +12,8 @@ function RegisterUser(event) {
     if (F_pass === S_pass) {
         DataBase.push({
             email: email,
-            pass: F_pass
+            pass: F_pass,
+            isonline: false
         });
 
         window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
@@ -35,7 +36,12 @@ function Login(event) {
         DataBase.forEach(element => {
             if (element.email === email && element.pass === pass) {
                 alert("ok");
-        document.location.href = "./field.html";
+
+
+                var userObject = JSON.parse(DataBase);
+                
+                
+                document.location.href = "./field.html";
             }
         });
     } else {
