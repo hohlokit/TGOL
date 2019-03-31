@@ -1,20 +1,27 @@
 var DataBase = [];
 
+var users = {
+    email: "admin@admin.com",
+    pass: "admin",
+    isonline: false
+}
+
 function RegisterUser(event) {
     event.preventDefault();
 
-    var arrLocalStorage = JSON.parse(window.localStorage.getItem('DataBase'));
 
     var email = event.target.elements.email.value;
     var F_pass = event.target.elements.FirstPassword.value;
     var S_pass = event.target.elements.SecondPassword.value;
 
     if (F_pass === S_pass) {
-        DataBase.push({
+        users = {
             email: email,
             pass: F_pass,
             isonline: false
-        });
+        };
+
+        DataBase.push(users);
 
         window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
         event.target.reset();
@@ -29,7 +36,10 @@ function Login(event) {
 
     var email = event.target.elements.email.value;
     var pass = event.target.elements.Password.value;
+
     var arrLocalStorage = JSON.parse(window.localStorage.getItem('DataBase'));
+
+
 
     if (arrLocalStorage && arrLocalStorage.length) {
         DataBase = arrLocalStorage;
@@ -38,8 +48,14 @@ function Login(event) {
                 alert("ok");
 
 
-                var userObject = JSON.parse(DataBase);
-                
+                var myJSON = JSON.stringify(DataBase)
+                localStorage.setItem('DataBase', myJSON);
+                users.email = email;
+                users.pass = pass;
+                users.isonline = true;
+                var myJSON = JSON.stringify(users);
+                localStorage.setItem('DataBase', myJSON);
+
                 document.location.href = "./field.html";
             }
         });
