@@ -72,3 +72,10 @@ button {
 	padding-top: 10px;
 	text-transform: uppercase;
 }
+
+footer {
+	display: flex;
+	justify-content: space-evenly;
+	height: 10%;
+	width:100%;
+}

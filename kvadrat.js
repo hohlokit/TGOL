@@ -25,8 +25,20 @@ function handleSquare(event) {
 }
 
 window.onload = function () {
+	redirect();
 	render();
 };
+
+function redirect() {
+	DataBase.forEach(element => {
+		if (element.isonline === true) {
+			alert("Welcome back," + element.email);
+		}
+		else {
+			document.location.href = "./log.html";
+		}
+	});
+}
 
 function render() {
 	var size = game.size.split('x');
@@ -54,7 +66,7 @@ function clearField() {
 	}
 }
 
-function Clear(){
+function Clear() {
 	clearField();
 	render();
 }

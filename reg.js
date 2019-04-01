@@ -1,4 +1,4 @@
-var DataBase = [];
+var DataBase = (JSON.parse(window.localStorage.getItem('DataBase'))) ? JSON.parse(window.localStorage.getItem('DataBase')) : [];
 
 var users = {
     email: "admin@admin.com",
@@ -8,7 +8,6 @@ var users = {
 
 function RegisterUser(event) {
     event.preventDefault();
-
 
     var email = event.target.elements.email.value;
     var F_pass = event.target.elements.FirstPassword.value;
@@ -21,7 +20,11 @@ function RegisterUser(event) {
             isonline: false
         };
 
-        DataBase.push(users);
+        DataBase.push({
+            email: email,
+            pass: F_pass,
+            isonline: false
+        });
 
         window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
         event.target.reset();
@@ -37,29 +40,25 @@ function Login(event) {
     var email = event.target.elements.email.value;
     var pass = event.target.elements.Password.value;
 
-    var arrLocalStorage = JSON.parse(window.localStorage.getItem('DataBase'));
 
-
-
-    if (arrLocalStorage && arrLocalStorage.length) {
-        DataBase = arrLocalStorage;
+    if (DataBase && DataBase.length) {
+        var i = 0;
         DataBase.forEach(element => {
             if (element.email === email && element.pass === pass) {
+
                 alert("ok");
+                DataBase[i].isonline = true;
 
-
-                var myJSON = JSON.stringify(DataBase)
-                localStorage.setItem('DataBase', myJSON);
-                users.email = email;
-                users.pass = pass;
-                users.isonline = true;
-                var myJSON = JSON.stringify(users);
-                localStorage.setItem('DataBase', myJSON);
-
+                window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
                 document.location.href = "./field.html";
             }
+            i++;
         });
     } else {
         alert("No user");
     }
+}
+
+function Exit() {
+        
 }
