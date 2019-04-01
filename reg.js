@@ -34,21 +34,21 @@ function RegisterUser(event) {
     }
 }
 
+
+
 function Login(event) {
     event.preventDefault();
-
+    var i = 0;
     var email = event.target.elements.email.value;
     var pass = event.target.elements.Password.value;
 
 
     if (DataBase && DataBase.length) {
-        var i = 0;
+
         DataBase.forEach(element => {
             if (element.email === email && element.pass === pass) {
-
                 alert("ok");
                 DataBase[i].isonline = true;
-
                 window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
                 document.location.href = "./field.html";
             }
@@ -59,6 +59,16 @@ function Login(event) {
     }
 }
 
+
 function Exit() {
-        
+    var i = 0;
+
+    DataBase.forEach(element => {
+        if (element.email  && element.pass) {
+            DataBase[i].isonline = false;
+            window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
+        }
+        i++;
+    });
+    document.location.href = "./log.html";
 }
