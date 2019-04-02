@@ -135,17 +135,11 @@ function randomGen() {
 	}
 }
 
-function play() {
-	for(var l=0;l<10;l++){
-		debugger
-		play1();
-	}
-}
 
-function play1() {
+function play() {
 	var neighbors = 0;
 	var temp;
-
+debugger
 	for (var k = 0; k < 200; k++) {
 		if (game.arr[k]) {
 			neighbors = 0;
