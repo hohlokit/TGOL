@@ -32,7 +32,7 @@ window.onload = function () {
 function redirect() {
 	DataBase.forEach(element => {
 		if (element.isonline === true) {
-			alert("Welcome back," + element.email);
+			//alert("Welcome back," + element.email);
 		}
 		else {
 			document.location.href = "./log.html";
@@ -133,4 +133,185 @@ function randomGen() {
 			game.arr[squareTemp].selected = true;
 		}
 	}
+}
+
+function play() {
+	for(var l=0;l<10;l++){
+		debugger
+		play1();
+	}
+}
+
+function play1() {
+	var neighbors = 0;
+	var temp;
+
+	for (var k = 0; k < 200; k++) {
+		if (game.arr[k]) {
+			neighbors = 0;
+			
+			if (k === 0) {
+				temp = k + 199;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 180;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 181;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 39;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if (k >= 1 && k <= 18) {
+				temp = k + 179;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 180;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 181;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if (k === 19) {
+				temp = k + 179;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 180;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 161;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if ((((k - 9) / 2) % 10) === 5 && k >= 39 && k <= 179) {
+				
+				temp = k - 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 39;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if ((k / 2 % 10 == 0) && k != 0 && k != 180) {
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 39;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if (k >= 21 && k <= 178) {
+				temp = k - 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if (k === 180) {
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k + 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 161;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 180;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 179;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+			}
+			else if (k === 199) {
+				temp = k - 21;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 20;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 39;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 1;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 19;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 181;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 180;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+				temp = k - 199;
+				(game.arr[temp].selected === true) ? neighbors++ : {};
+
+			}
+			
+			if (game.arr[k].selected === false) {
+				if (neighbors == 3) {
+					document.getElementById(k).selected = true;
+					document.getElementById(k).style.backgroundColor = 'blue';
+				}
+			}
+			if (game.arr[k].selected === true) {
+				if (neighbors > 3 || neighbors < 2) {
+					document.getElementById(k).selected = false;
+					document.getElementById(k).style.backgroundColor = 'white';
+				}
+			}
+			//(neighbors == 3) ? game.arr[k].selected = true : (neighbors == 2 || neighbors == 3) ? {} : game.arr[k].selected = false;
+		}
+	}
+
+
 }
