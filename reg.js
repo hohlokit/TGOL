@@ -3,7 +3,8 @@ var DataBase = (JSON.parse(window.localStorage.getItem('DataBase'))) ? JSON.pars
 var users = {
     email: "admin@admin.com",
     pass: "admin",
-    isonline: false
+    isonline: false,
+    settings: game
 }
 
 function RegisterUser(event) {
@@ -17,13 +18,16 @@ function RegisterUser(event) {
         users = {
             email: email,
             pass: F_pass,
-            isonline: false
+            isonline: false,
+            settings: game
+
         };
 
         DataBase.push({
             email: email,
             pass: F_pass,
-            isonline: false
+            isonline: false,
+            settings: game
         });
 
         window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
@@ -64,11 +68,11 @@ function Exit() {
     var i = 0;
 
     DataBase.forEach(element => {
-        if (element.email  && element.pass) {
+        if (element.email && element.pass) {
             DataBase[i].isonline = false;
             window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
         }
         i++;
     });
     document.location.href = "./log.html";
-}
+} 0
