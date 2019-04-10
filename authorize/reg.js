@@ -4,7 +4,7 @@ var users = {
     email: "admin@admin.com",
     pass: "admin",
     isonline: false,
-    settings: game
+   
 }
 
 function RegisterUser(event) {
@@ -19,15 +19,13 @@ function RegisterUser(event) {
             email: email,
             pass: F_pass,
             isonline: false,
-            settings: game
-
         };
 
         DataBase.push({
             email: email,
             pass: F_pass,
             isonline: false,
-            settings: game
+            
         });
 
         window.localStorage.setItem('DataBase', JSON.stringify(DataBase));

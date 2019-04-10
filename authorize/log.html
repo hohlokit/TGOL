@@ -13,7 +13,7 @@
 
 
 <body>
-    
+
     <header>
         <div>
             <h1>Game of Life</h1>
@@ -22,12 +22,16 @@
     <content>
         <div class="box">
             <form name="authorization" onSubmit="Login(event);">
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="Password" placeholder="Password" required minlength="4">
-                <button>
+                <div class="first"> 
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="password" name="Password" placeholder="Password" required minlength="4">
+                </div>
+                <div class="second">
+                    <button>
                     <a href="./registration.html">registration </a>
                 </button>
                 <button type="submit">submit</button>
+                </div>
             </form>
         </div>
     </content>
