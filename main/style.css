@@ -15,14 +15,14 @@ h1 {
 header {
 	display: flex;
 	justify-content: center;
-	background-image: url(img/fon.jpg);
+	background-image: url(../img/fon.jpg);
 	background-repeat: no-repeat;
 	font-family: sans-serif;
 	font-size: 1em;
 }
 
 content {
-	background-image: url(img/fon.jpg);
+	background-image: url(../img/fon.jpg);
 	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
@@ -78,4 +78,7 @@ footer {
 	justify-content: space-evenly;
 	height: 10%;
 	width:100%;
+}
+.interface>button {
+	margin-left: 10px;
 }

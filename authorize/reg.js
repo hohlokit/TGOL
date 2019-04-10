@@ -54,7 +54,7 @@ function Login(event) {
                 alert("ok");
                 DataBase[i].isonline = true;
                 window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
-                document.location.href = "./field.html";
+                document.location.href = "../main/field.html";
             }
             i++;
         });
