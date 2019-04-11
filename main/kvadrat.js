@@ -8,6 +8,7 @@ var game = {
 	arr: []
 };
 
+
 function handleSquare(event) {
 
 	var id = event.target.id;
@@ -25,18 +26,19 @@ function handleSquare(event) {
 }
 
 window.onload = function () {
-	00
+
 	redirect();
 	render();
 };
 
 function redirect() {
-	DataBase.forEach(element => {
+	var temp = JSON.parse(localStorage.getItem('DataBase'));
+	temp.forEach(element => {
 		if (element.isonline === true) {
 			//alert("Welcome back," + element.email);
 		}
 		else {
-			document.location.href = "./log.html";
+			document.location.href = "../authorize/log.html";
 		}
 	});
 }
@@ -47,12 +49,15 @@ function render() {
 
 	var size = game.size.split('x');
 	var height = +size[1], width = +size[0];
-	var n = 0;
+
 	for (var i = 0; i < width; i++) {
 		for (var j = 0; j < height; j++) {
-			createUserSegment(n);
+			createUserSegment(i + j);
+			// if (game.arr[i + j].selected === true) {
+			// 	document.getElementById(i + j).style.backgroundColor = 'blue';
+			// }
+			// else
 			game.arr.push({ selected: false });
-			n++;
 		}
 	}
 }
@@ -65,7 +70,7 @@ function createUserSegment(sum) {
 }
 
 function clearField() {
-	// ToDo: Тут потрібно видаляти поля і в масиві game.arr ++
+	// Done: Тут потрібно видаляти поля і в масиві game.arr 
 	while (field.lastChild) {
 		field.removeChild(field.lastChild);
 		game.arr.shift();
@@ -105,7 +110,8 @@ function handleChangeSize(event) {
 function randomGen() {
 	// Я преписав функцію ген. Слідкуй за прикладом кодінгу
 	// ToDo: перенеси робону з DOM в render()
-
+	clearField();
+	render();
 	var field;
 
 	for (var i = 0; i < game.arr.length; i++) {
@@ -122,106 +128,19 @@ function randomGen() {
 
 
 function play() {
+	var size = game.size.split('x');
+	var height = +size[1], width = +size[0];
 
-	var neighbors = 0;
-	var temp = 0;
+
 	// ToDo: Тут надто багато хатдкоду. Подивись алгоритм в тасці 
-	for (var k = 0; k < 200; k++) {
-		neighbors = 0;
 
-		if (k == 0 || k == 19 || k == 180 || k == 199 || k == 20 || k == 40 || k == 60 || k == 80 || k == 100 || k == 120 || k == 140 || k == 160 || k == 39 || k == 59 || k == 79 || k == 99 || k == 119 || k == 139 || k == 159 || k == 179 || (k < 20 && k > 0) || k < 199 && k > 180) {
-			debugger
-			if (k == 0) {
-				temp = k + 1;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k + 20;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k + 21;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-			}
-			if (k == 19) {
-				temp = k - 1;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k + 19;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k + 20;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
+	for (var i = 0; i < height; i++) {
+		for (var j = 0; j < width; j++) {
+			var neighbors = 0;
+			if (i < height) {
 
 			}
-			if (k == 180) {
-				temp = k - 20;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k - 19;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-				temp = k + 1;
-				(game.arr[temp].selected === true) ? neighbors++ : {};
-			}
-			if (k == 199) {
-				(game.arr[k - 21].selected === true) ? neighbors++ : {};
-				(game.arr[k - 20].selected === true) ? neighbors++ : {};
-				(game.arr[k - 1].selected === true) ? neighbors++ : {};
-			}
-			if (k == 20 || k == 40 || k == 60 || k == 80 || k == 100 || k == 120 || k == 140 || k == 160) {
-				(game.arr[k - 20].selected === true) ? neighbors++ : {};
-				(game.arr[k - 19].selected === true) ? neighbors++ : {};
-				(game.arr[k + 1].selected === true) ? neighbors++ : {};
-				(game.arr[k + 20].selected === true) ? neighbors++ : {};
-				(game.arr[k + 21].selected === true) ? neighbors++ : {};
-			}
-			if (k == 39 || k == 59 || k == 79 || k == 99 || k == 119 || k == 139 || k == 159 || k == 179) {
-				(game.arr[k - 21].selected === true) ? neighbors++ : {};
-				(game.arr[k - 20].selected === true) ? neighbors++ : {};
-				(game.arr[k - 1].selected === true) ? neighbors++ : {};
-				(game.arr[k + 19].selected === true) ? neighbors++ : {};
-				(game.arr[k + 20].selected === true) ? neighbors++ : {};
-			}
-			if (k < 20 && k > 0) {
-				(game.arr[k - 1].selected === true) ? neighbors++ : {};
-				(game.arr[k + 1].selected === true) ? neighbors++ : {};
-				(game.arr[k + 19].selected === true) ? neighbors++ : {};
-				(game.arr[k + 20].selected === true) ? neighbors++ : {};
-				(game.arr[k + 21].selected === true) ? neighbors++ : {};
-			}
-			if (k < 199 && k > 180) {
-				(game.arr[k - 21].selected === true) ? neighbors++ : {};
-				(game.arr[k - 20].selected === true) ? neighbors++ : {};
-				(game.arr[k - 19].selected === true) ? neighbors++ : {};
-				(game.arr[k - 1].selected === true) ? neighbors++ : {};
-				(game.arr[k + 1].selected === true) ? neighbors++ : {};
-			}
-		}
-		else if (k < 200) {
-			debugger
-			temp = k - 21;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k - 20;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k - 19;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k - 1;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k + 1;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k + 19;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k + 20;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-			temp = k + 21;
-			(game.arr[temp].selected === true) ? neighbors++ : {};
-		}
 
-		if (game.arr[k].selected === true) {
-			if (neighbors > 3 || neighbors < 2) {
-				document.getElementById(k).selected = false;
-				document.getElementById(k).style.backgroundColor = 'white';
-			}
 		}
-		if (game.arr[k].selected === false) {
-			if (neighbors == 3) {
-				document.getElementById(k).selected = true;
-				document.getElementById(k).style.backgroundColor = 'blue';
-			}
-		}
-
 	}
 }

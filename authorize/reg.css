@@ -28,7 +28,7 @@ input[type="password"] {
 }
 input[type="email"] {
     background: url(../img/email_icon.png) no-repeat;
-    background-position:3px 3px ;
+    background-position:1.5px 4px ;
     background-size: 8%;
     padding-left: 25px;
 }

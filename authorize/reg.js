@@ -1,11 +1,15 @@
 var DataBase = (JSON.parse(window.localStorage.getItem('DataBase'))) ? JSON.parse(window.localStorage.getItem('DataBase')) : [];
 
-var users = {
+var users = [{
     email: "admin@admin.com",
     pass: "admin",
     isonline: false,
-   
-}
+    settings: [{
+        size: '20x10',
+        arr: []
+    }]
+}];
+
 
 function RegisterUser(event) {
     event.preventDefault();
@@ -14,25 +18,35 @@ function RegisterUser(event) {
     var F_pass = event.target.elements.FirstPassword.value;
     var S_pass = event.target.elements.SecondPassword.value;
 
-    if (F_pass === S_pass) {
-        users = {
-            email: email,
-            pass: F_pass,
-            isonline: false,
-        };
+    var temp = DataBase.forEach(comp => {
+        if (comp.email === email) {
+            alert("This user already exists");
+            return 1;
+        }
+    });
 
-        DataBase.push({
-            email: email,
-            pass: F_pass,
-            isonline: false,
-            
-        });
+    if (temp != 1) {
 
-        window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
-        event.target.reset();
-        document.location.href = "./log.html";
-    } else {
-        alert("2");
+        if (F_pass === S_pass) {
+            users = {
+                email: email,
+                pass: F_pass,
+                isonline: false
+            };
+
+            DataBase.push({
+                email: email,
+                pass: F_pass,
+                isonline: false,
+                settings: [{}]
+            });
+
+            window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
+            event.target.reset();
+            document.location.href = "./log.html";
+        } else {
+            alert("2");
+        }
     }
 }
 
@@ -49,7 +63,7 @@ function Login(event) {
 
         DataBase.forEach(element => {
             if (element.email === email && element.pass === pass) {
-                alert("ok");
+                alert("Hello");
                 DataBase[i].isonline = true;
                 window.localStorage.setItem('DataBase', JSON.stringify(DataBase));
                 document.location.href = "../main/field.html";
